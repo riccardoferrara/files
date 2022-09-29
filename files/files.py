@@ -2,6 +2,7 @@ import os
 import json
 from xlsx2csv import Xlsx2csv
 import configparser
+import tkinter as tk
 
 def ignoreFilesWithLeftExtension(fileNames, leftExtension, verbose = False):
     '''from a fileList remove all files starting from leftExtension 
@@ -87,3 +88,10 @@ def writeFileFromString(filePath, string):
     w = outputFile.write(string)
     outputFile.close()
     return w
+
+def getFolderPathGui():
+    root = tk.Tk()
+    root.withdraw()
+    folderSelected = tk.filedialog.askdirectory()
+    print('user selects folder: %s', folderSelected)
+    return folderSelected
