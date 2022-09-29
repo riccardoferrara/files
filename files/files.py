@@ -95,3 +95,7 @@ def getFolderPathGui():
     folderSelected = tk.filedialog.askdirectory()
     print('user selects folder: %s', folderSelected)
     return folderSelected
+
+def createDirIfNotExist(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
