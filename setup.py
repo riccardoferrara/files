@@ -6,5 +6,5 @@ setup(
     description='some of the most common file functions (write file, write json, get dirs, ...)',
     author='riccardo85ferrara@gmail.com',
     license='MIT',
-    setup_requires=['setuptools==63.4.3','xlsx2csv==0.8.0']
+    install_requires=['setuptools==63.4.3','xlsx2csv==0.8.0']
 )
