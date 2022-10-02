@@ -1,4 +1,4 @@
-import os
+import os, shutil
 import json
 from xlsx2csv import Xlsx2csv
 import configparser
@@ -99,3 +99,14 @@ def getFolderPathGui():
 def createDirIfNotExist(path):
     if not os.path.exists(path):
         os.makedirs(path)
+
+def deleteAllFilesInFolder(path):
+    for filename in os.listdir(path):
+        file_path = os.path.join(path, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
